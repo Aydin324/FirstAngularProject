@@ -1,1 +1,10 @@
-<p>facts works!</p>
+<h2>Random Cat fact</h2>
+
+<div class="facts">
+  @if (fact(); as f) {
+  <p class="fact-text">{{ f.fact }}</p>
+  <button (click)="fetchFact()">Click for a new fact</button>
+  } @else {
+  <p class="fact-text">Loading...</p>
+  }
+</div>

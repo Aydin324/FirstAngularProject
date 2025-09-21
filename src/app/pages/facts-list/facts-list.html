@@ -1,0 +1,18 @@
+<h1 class="shadowed">Facts List</h1>
+
+<div class="facts-list">
+  @if (!submitted){
+  <form (ngSubmit)="submitName()">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name" required [(ngModel)]="name" />
+    <button type="submit">Submit</button>
+  </form>
+  } @else {
+  <h3 class="shadowed">Hello {{ name }}!</h3>
+  <p>Here are all cat facts we have:</p>
+
+  <div class="facts-container">
+    <p>Placeholder</p>
+  </div>
+  }
+</div>

@@ -1,11 +1,16 @@
 .facts {
   text-align: center;
   padding: 2rem;
+  border: 1px solid gray;
+  border-top-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  background-color: rgba($color: white, $alpha: 0.5);
 
   .fact-text {
     font-size: 1.2rem;
     font-style: italic;
     margin-bottom: 1rem;
+    color: #000;
   }
 
   button {

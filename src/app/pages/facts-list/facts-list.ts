@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CatFact, FactService } from '../../services/fact';
 
@@ -16,7 +16,7 @@ export class FactsList {
   last_page = 0;
   facts: CatFact[] = [];
 
-  constructor(private factService: FactService) {}
+  constructor(private factService: FactService, private cdr: ChangeDetectorRef) {}
 
   submitName() {
     this.submitted = true;
@@ -28,6 +28,7 @@ export class FactsList {
       this.facts = response.data;
       this.last_page = response.last_page;
       this.current_page = response.current_page;
+      this.cdr.detectChanges();
     });
   }
 

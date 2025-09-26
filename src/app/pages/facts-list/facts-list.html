@@ -11,7 +11,7 @@
   <h3 class="shadowed">Hello {{ name }}!</h3>
   <p>Here are all cat facts we have:</p>
 
-  <div class="facts-container">
+  <div class="facts-container" [class.loading]="loading">
     <ul>
       @for (fact of facts; track fact.fact){
       <li>{{ fact.fact }}</li>
@@ -20,7 +20,7 @@
 
     <div class="pagination">
       <button (click)="previousPage()" [disabled]="current_page === 1">Previous</button>
-      <span>Page {{ current_page }} of {{ last_page }}</span>
+      <span>{{ current_page }} of {{ last_page }}</span>
       <button (click)="nextPage()" [disabled]="current_page === last_page">Next</button>
     </div>
   </div>

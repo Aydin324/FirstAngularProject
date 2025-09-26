@@ -15,6 +15,7 @@ export class FactsList {
   current_page = 1;
   last_page = 0;
   facts: CatFact[] = [];
+  loading = false;
 
   constructor(private factService: FactService, private cdr: ChangeDetectorRef) {}
 
@@ -24,10 +25,12 @@ export class FactsList {
   }
 
   loadFacts(page: number) {
+    this.loading = true;
     this.factService.getFacts(page).subscribe((response) => {
       this.facts = response.data;
       this.last_page = response.last_page;
       this.current_page = response.current_page;
+      this.loading = false;
       this.cdr.detectChanges();
     });
   }
